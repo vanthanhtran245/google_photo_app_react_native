@@ -2,7 +2,7 @@ import BottomSheet from '@gorhom/bottom-sheet';
 import 'intl';
 import 'intl/locale-data/jsonp/en'; // or any other locale you need
 import {Heading, HStack, Image, Spacer, Text, View, VStack} from 'native-base';
-import {useMemo, useRef} from 'react';
+import React, {useMemo, useRef} from 'react';
 import {IPhotoMediaItemTypes} from '../../../types/photo';
 
 interface IPhotoMediaItemInfoBottomSheetProps {

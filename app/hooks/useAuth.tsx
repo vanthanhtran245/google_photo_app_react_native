@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useState} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 import {User as GoogleUser} from '@react-native-google-signin/google-signin';
 import {authentication} from '../services/auth';
 import {checkSignIn} from '../services/auth/authMethod';

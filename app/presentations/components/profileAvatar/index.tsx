@@ -1,4 +1,4 @@
-import {useCallback, useRef} from 'react';
+import React, {useCallback, useRef} from 'react';
 import 'react-native-gesture-handler';
 import {BottomSheetModal} from '@gorhom/bottom-sheet';
 import {Box, Image, Pressable, View} from 'native-base';

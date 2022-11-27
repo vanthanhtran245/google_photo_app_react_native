@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {FlatList, View} from 'native-base';
-import {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {Dimensions} from 'react-native';
 import {PinchGestureHandler} from 'react-native-gesture-handler';
 import {IMediaItemTypes} from '../../../types/media';

@@ -1,3 +1,4 @@
+import React from 'react';
 import {Center} from 'native-base';
 import {CircularLoader} from '../../components/loading';
 

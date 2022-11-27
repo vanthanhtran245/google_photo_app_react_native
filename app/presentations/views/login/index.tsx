@@ -1,6 +1,7 @@
 import {Box, Heading, View, VStack} from 'native-base';
 import i18n from '../../../utils/translations_utilities';
 import {AppLogo} from '../../components/applogo';
+import React from 'react';
 import {SignInButton} from '../../components/signButton';
 
 const Login = () => {

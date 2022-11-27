@@ -1,3 +1,4 @@
+import React from 'react';
 import {Spinner} from 'native-base';
 import {ThemeComponentSizeType} from 'native-base/lib/typescript/components/types';
 import {ColorValue} from 'react-native';
