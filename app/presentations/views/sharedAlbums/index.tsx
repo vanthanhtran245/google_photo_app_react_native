@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {View} from 'native-base';
-import {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {PinchGestureHandler} from 'react-native-gesture-handler';
 import {IAlbum} from '../../../types/albums';
 import {TSharedAlbumsStackSharedAlbumsProps} from '../../../types/navigation';
