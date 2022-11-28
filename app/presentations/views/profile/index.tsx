@@ -1,4 +1,4 @@
-import {StyleSheet, useWindowDimensions} from 'react-native';
+import React, {StyleSheet, useWindowDimensions} from 'react-native';
 import 'react-native-gesture-handler';
 import {BottomSheetModal} from '@gorhom/bottom-sheet';
 import {BottomSheetModalMethods} from '@gorhom/bottom-sheet/lib/typescript/types';
@@ -6,7 +6,6 @@ import {User} from '@react-native-google-signin/google-signin';
 import {Heading, View} from 'native-base';
 import {ProfilePhoto} from '../../components/profilePhoto';
 import {SignOutButton} from '../../components/sigoutButton';
-import React from 'react-native';
 
 interface IProfileProps {
   user: User;

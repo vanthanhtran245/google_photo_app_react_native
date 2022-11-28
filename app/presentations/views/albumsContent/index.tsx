@@ -13,6 +13,7 @@ import {getAlbumsContent} from '../../../client/photos';
 import {onPinchHandlerStateChange} from '../../../utils/onPichHandleState';
 import {MediaItem} from '../../components/media';
 import {primaryBackgroundColor} from '../../../styles/colors';
+import React from 'react';
 
 const AlbumsContent = () => {
   const route =

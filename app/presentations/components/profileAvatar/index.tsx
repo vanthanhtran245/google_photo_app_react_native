@@ -36,7 +36,7 @@ const ProfileAvatar = () => {
         )}
       </Pressable>
 
-      <Profile user={user} bottomSheetModalRef={bottomSheetModalRef} />
+      {/*<Profile user={user} bottomSheetModalRef={bottomSheetModalRef} />*/}
     </Box>
   );
 };

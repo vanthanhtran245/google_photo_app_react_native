@@ -4,6 +4,7 @@ import {IAlbum} from '../../../types/albums';
 import {IMediaItemTypes} from '../../../types/media';
 import {AlbumItem} from '../album';
 import {MediaItem} from '../media';
+import React from 'react';
 
 interface IGridViewFlatListProps {
   data: Array<IMediaItemTypes | IAlbum>;

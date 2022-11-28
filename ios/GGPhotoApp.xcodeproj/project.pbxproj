@@ -43,6 +43,10 @@
 		329479A46BD04B6AE9472725 /* Pods-GGPhotoApp-GGPhotoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGPhotoApp-GGPhotoAppTests.release.xcconfig"; path = "Target Support Files/Pods-GGPhotoApp-GGPhotoAppTests/Pods-GGPhotoApp-GGPhotoAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = GGPhotoApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81DE84E4611E75FAC8C8E4F0 /* Pods-GGPhotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGPhotoApp.release.xcconfig"; path = "Target Support Files/Pods-GGPhotoApp/Pods-GGPhotoApp.release.xcconfig"; sourceTree = "<group>"; };
+		BC8AFE0929344D26008DDFAE /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		BC8AFE0A29344D26008DDFAE /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		BC8AFE0B29344D26008DDFAE /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		BC8AFE0F29344D6F008DDFAE /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		BC8D375B293060C200497811 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "GGPhotoApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCF69142293255C200909E66 /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		C97E965F9518C85E5F7A9B98 /* Pods-GGPhotoApp-GGPhotoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGPhotoApp-GGPhotoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-GGPhotoApp-GGPhotoAppTests/Pods-GGPhotoApp-GGPhotoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 		13B07FAE1A68108700A75B9A /* GGPhotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				BC8AFE0829344D1A008DDFAE /* Fonts */,
 				BC8D375B293060C200497811 /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -152,6 +157,17 @@
 				329479A46BD04B6AE9472725 /* Pods-GGPhotoApp-GGPhotoAppTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BC8AFE0829344D1A008DDFAE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BC8AFE0F29344D6F008DDFAE /* MaterialIcons.ttf */,
+				BC8AFE0929344D26008DDFAE /* AntDesign.ttf */,
+				BC8AFE0A29344D26008DDFAE /* FontAwesome.ttf */,
+				BC8AFE0B29344D26008DDFAE /* Foundation.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

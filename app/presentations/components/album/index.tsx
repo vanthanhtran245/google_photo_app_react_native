@@ -1,6 +1,7 @@
 import {Image, Pressable, View, Center, Heading} from 'native-base';
 import {IAlbum} from '../../../types/albums';
 import {primaryBorderColor} from '../../../styles/colors';
+import React from 'react';
 
 interface IAlbumProps {
   item: IAlbum;

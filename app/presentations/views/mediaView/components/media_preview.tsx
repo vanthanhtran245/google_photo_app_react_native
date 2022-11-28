@@ -2,6 +2,7 @@ import {Image} from 'native-base';
 import {useWindowDimensions} from 'react-native';
 import {IMediaItemTypes} from '../../../../types/media';
 import {getAspectRatio} from '../../../../utils/getAspectRatio';
+import React from 'react';
 
 const MediaPreview = ({mediaItem}: {mediaItem: IMediaItemTypes}) => {
   const {width} = useWindowDimensions();

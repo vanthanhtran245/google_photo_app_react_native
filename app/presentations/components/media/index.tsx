@@ -1,6 +1,7 @@
 import {Image, Pressable, View} from 'native-base';
 import {IMediaItemTypes} from '../../../types/media';
 import {primaryBorderColor} from '../../../styles/colors';
+import React from 'react';
 
 interface IMediaItemProps {
   item: IMediaItemTypes;
