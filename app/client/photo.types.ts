@@ -16,10 +16,6 @@ type TGetSharedAlbumsResponseTypes = {
   nextPageToken?: string;
 };
 
-type TPostMediaItemSearchTypes = {
-  mediaItems: Array<IMediaItemTypes>;
-  nextPageToken?: string;
-};
 type TGetAlbumsSearchTypes = {
   mediaItems: Array<IMediaItemTypes>;
   nextPageToken?: string;
@@ -29,6 +25,5 @@ export {
   TGetMediaItemsResponseTypes,
   TGetAlbumsResponseTypes,
   TGetSharedAlbumsResponseTypes,
-  TPostMediaItemSearchTypes,
   TGetAlbumsSearchTypes,
 };

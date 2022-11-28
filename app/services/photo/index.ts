@@ -4,6 +4,7 @@ import {Platform} from 'react-native';
 import RNFS from 'react-native-fs';
 import {IPhotoMediaItemTypes} from '../../types/photo';
 import {hasAndroidPermission, hasiOSPermission} from '../permission';
+import {IAlbum} from '../../types/albums';
 
 async function savePicture(media: IPhotoMediaItemTypes): Promise<boolean> {
   try {
@@ -27,6 +28,13 @@ async function savePicture(media: IPhotoMediaItemTypes): Promise<boolean> {
     console.log(error);
     return false;
   }
+}
+
+async function addToAlbum(
+  album: IAlbum,
+  media: IPhotoMediaItemTypes,
+): Promise<boolean> {
+  return false;
 }
 
 export {savePicture};

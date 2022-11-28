@@ -10,6 +10,7 @@ import {
   TGetMediaItemsResponseTypes,
   TGetSharedAlbumsResponseTypes,
 } from './photo.types';
+import {statusCodes} from '@react-native-google-signin/google-signin';
 
 /**
  * Gets albums of user.
@@ -277,6 +278,36 @@ const getVideoMediaItemHeader = async () => {
   };
 };
 
+const addMediaToAlbum = async ({
+  mediaId,
+  albumId,
+}: {
+  mediaId: string;
+  albumId: string;
+}): Promise<Boolean | null> => {
+  try {
+    const tokens = await getTokens();
+
+    if (tokens === null) {
+      return null;
+    }
+    const client = await photoClient(tokens.accessToken);
+    const pathURL = `albums/${albumId}:batchAddMediaItems`;
+    const request = {mediaItemIds: [mediaId]};
+    const res = await client.post(pathURL, {
+      request,
+    });
+
+    if (res.status) {
+      return true;
+    }
+    return true;
+  } catch (error: any) {
+    console.log(error);
+    return false;
+  }
+};
+
 export {
   getAlbums,
   getSharedAlbums,
@@ -285,4 +316,5 @@ export {
   getPhotoMediaItem,
   getVideoMediaItem,
   getVideoMediaItemHeader,
+  addMediaToAlbum,
 };

@@ -11,6 +11,7 @@ const AppLogo = ({size}: IAppLogoProps) => {
   return (
     <Image
       alt="App Icon"
+      alignItems={'center'}
       rounded={'full'}
       size={size}
       source={require(appIconPath)}

@@ -11,7 +11,7 @@ import {
 import {IPhotoMediaItemTypes} from '../../../types/photo';
 import {IVideoMediaItemTypes} from '../../../types/video';
 import {getPhotoMediaItem, getVideoMediaItem} from '../../../client/photos';
-import {checkMediaType, MediaType} from '../../../utils/checkMediaType';
+import {checkMediaType} from '../../../utils/checkMediaType';
 import {CircularLoader} from '../../components/loading';
 import {MediaPreview} from './components/media_preview';
 import {PhotoMediaItem} from './components/photo_media_item';

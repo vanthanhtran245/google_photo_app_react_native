@@ -15,7 +15,7 @@ const Login = () => {
           <Heading
             fontWeight={'semibold'}
             maxWidth={'64'}
-            textAlign="left"
+            textAlign="center"
             marginBottom="4">
             {i18n.t('login_screen_continue_title')}
           </Heading>

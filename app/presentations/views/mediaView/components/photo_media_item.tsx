@@ -13,11 +13,15 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {IPhotoMediaItemTypes} from '../../../../types/photo';
 import {savePicture} from '../../../../services/photo';
 import {getAspectRatio} from '../../../../utils/getAspectRatio';
+import {addMediaToAlbum, getAlbums} from '../../../../client/photos';
 import {PhotoMediaItemInfoBottomSheet} from '../../../layouts/PhotoMediaItemInfoBottomSheet';
+import {AlbumsItemSheet} from '../../../layouts/AlbumInfoBottomSheet';
+import {IAlbum} from '../../../../types/albums';
 
 const PhotoMediaItem = ({mediaItem}: {mediaItem: IPhotoMediaItemTypes}) => {
   const {width} = useWindowDimensions();
   const [infoSheet, setInfoSheet] = useState(false);
+  const [showAlbums, setAlbumsSheet] = useState([]);
   const navigation = useNavigation();
 
   const aspectRatio = getAspectRatio(
@@ -32,6 +36,20 @@ const PhotoMediaItem = ({mediaItem}: {mediaItem: IPhotoMediaItemTypes}) => {
       position: 'bottom',
     });
   };
+
+  //TODO: Handle add media to albums
+  // const addMediaItemToAlbum = async () => {
+  //   const album = await getAlbums();
+  //   const albumId = album.albums[0].id;
+  //   await addMediaToAlbum({
+  //     mediaId: mediaItem.id,
+  //     albumId: albumId,
+  //   });
+  //   Toast.show({
+  //     text1: 'Image added to album!',
+  //     position: 'bottom',
+  //   });
+  // };
 
   const showInfo = () => {
     setInfoSheet(true);
@@ -84,6 +102,16 @@ const PhotoMediaItem = ({mediaItem}: {mediaItem: IPhotoMediaItemTypes}) => {
             size={'25%'}
           />
         )}
+
+        {/*{infoSheet && (*/}
+        {/*  <AlbumsItemSheet*/}
+        {/*    albums={await getAlbums}*/}
+        {/*    onClose={() => {*/}
+        {/*      setInfoSheet(false);*/}
+        {/*    }}*/}
+        {/*    size={'25%'}*/}
+        {/*  />*/}
+        {/*)}*/}
 
         <Toast />
         {renderFunctionalityButtons()}
