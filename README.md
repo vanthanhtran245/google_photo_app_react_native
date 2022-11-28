@@ -64,4 +64,4 @@ npm run android
 * ## Video View Details 
 Android | iOS
 :-: | :-:
-<iframe width="480" height="390" src="[Android](https://youtu.be/ykLSI8x0luQ)" frameborder="0" allowfullscreen></iframe> | <iframe width="480" height="390" src="[iOS](https://youtu.be/eaK7n_w1kpQ)" frameborder="0" allowfullscreen>
+[![Android](https://yt-embed.herokuapp.com/embed?v=ykLSI8x0luQ)](https://www.youtube.com/watch?v=ykLSI8x0luQ "Android") |  [![iOS](https://yt-embed.herokuapp.com/embed?v=eaK7n_w1kpQ)](https://www.youtube.com/watch?v=eaK7n_w1kpQ "iOS")
