@@ -64,4 +64,4 @@ npm run android
 * ## Video View Details 
 Android | iOS
 :-: | :-:
-<video src='videos/android.mp4' width=180/> | <video src='videos/ios.mp4' width=180/>
+<iframe width="480" height="390" src="[Android](https://youtu.be/ykLSI8x0luQ)" frameborder="0" allowfullscreen></iframe> | <iframe width="480" height="390" src="[iOS](https://youtu.be/eaK7n_w1kpQ)" frameborder="0" allowfullscreen>
