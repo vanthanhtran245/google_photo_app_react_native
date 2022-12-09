@@ -1,12 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import {Center, Image, View, ZStack} from 'native-base';
 import React, {useEffect, useRef, useState} from 'react';
-import {
-  Dimensions,
-  StyleSheet,
-  TouchableOpacity,
-  useWindowDimensions,
-} from 'react-native';
+import {StyleSheet, TouchableOpacity, useWindowDimensions} from 'react-native';
 import RNFS from 'react-native-fs';
 import Video from 'react-native-video';
 import {TPhotoStackMediaViewProps} from '../../../../types/navigation';

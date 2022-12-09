@@ -1,45 +1,46 @@
-import React, {useCallback, useRef, useMemo} from 'react';
+import React, {useRef, useMemo, useCallback} from 'react';
 import {StyleSheet, Text} from 'react-native';
 import BottomSheet, {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 import {IAlbum} from '../../../types/albums';
+import {Pressable, View} from 'native-base';
 
 interface IAlbumItemsBottomSheetProps {
+  onSelectAlbum: (IAlbum) => void;
   onClose: () => void;
-  albums: [IAlbum];
+  albums: Array<IAlbum>;
   size: '40%' | '25%';
 }
 
 const AlbumsItemSheet = ({
+  onSelectAlbum,
   onClose,
   albums,
   size,
 }: IAlbumItemsBottomSheetProps) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
-  // variables
   const snapPoints = useMemo(() => [size], []);
-  const renderAlbumName = (album: IAlbum) => {
-    return (
-      <Text marginTop={1} marginBottom={3} fontSize={'sm'}>
-        {album.title}
-      </Text>
-    );
-  };
 
-  const handleSnapPress = useCallback(index => {
-    bottomSheetRef.current?.snapToIndex(index);
-  }, []);
+  const renderItem = useCallback(
+    ({item}) => (
+      <View key={item.id} style={styles.itemContainer}>
+        <Pressable onPress={onSelectAlbum(item)} />
+        <Text marginTop={1} marginBottom={3} fontSize={'sm'}>
+          {item.title}
+        </Text>
+      </View>
+    ),
+    [],
+  );
 
   return (
     <BottomSheet
       ref={bottomSheetRef}
-      index={0}
       enablePanDownToClose={true}
-      snapPoints={snapPoints}
-      onClose={onClose}>
+      onClose={onClose}
+      snapPoints={snapPoints}>
       <BottomSheetFlatList
         data={albums}
-        keyExtractor={i => i}
-        renderItem={renderAlbumName}
+        renderItem={renderItem}
         contentContainerStyle={styles.contentContainer}
       />
     </BottomSheet>

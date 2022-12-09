@@ -1,6 +1,7 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {IAlbum} from './albums';
 import {IMediaItemTypes} from './media';
+import {TGetAlbumsResponseTypes} from '../client/photo.types';
 
 // Login Stack
 export type TLoginScreenParamsList = {};
@@ -21,6 +22,7 @@ export type TLoginRootStackProps = NativeStackNavigationProp<
 export type TPhotosScreenParamsList = {};
 export type TMediaViewScreenParamsList = {
   mediaItem: IMediaItemTypes;
+  albums: TGetAlbumsResponseTypes;
 };
 export type TAlbumsParamsList = {};
 export type TSharedAlbumsParamsList = {};

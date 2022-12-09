@@ -1,7 +1,6 @@
 import {RouteProp, useRoute} from '@react-navigation/native';
-import {Box, Center, Heading, Image, View, ZStack} from 'native-base';
+import {Center, View, ZStack} from 'native-base';
 import React, {useEffect, useState} from 'react';
-import {Dimensions} from 'react-native';
 import {
   IAlbumsStackParamList,
   IPhotosStackParamList,
@@ -29,7 +28,9 @@ const MediaView = () => {
     >();
 
   const mediaItem = route.params.mediaItem;
-  const [extededMediaItem, setExtendedMediaItem] = useState<
+  const albums = route.params.albums;
+  console.log(albums);
+  const [extendedMediaItem, setExtendedMediaItem] = useState<
     IVideoMediaItemTypes | IPhotoMediaItemTypes | null
   >(null);
 
@@ -54,7 +55,7 @@ const MediaView = () => {
   }, []);
 
   /// If Media is loading, Show MediaPreview
-  if (extededMediaItem === null) {
+  if (extendedMediaItem === null) {
     return (
       <View flex={1} alignItems="center" justifyContent={'center'}>
         <ZStack alignItems="center" justifyContent="center">
@@ -68,13 +69,16 @@ const MediaView = () => {
   } else if (typeOfMedia === 'Photo') {
     return (
       <View flex={1} alignItems="center" justifyContent={'center'}>
-        <PhotoMediaItem mediaItem={extededMediaItem as IPhotoMediaItemTypes} />
+        <PhotoMediaItem
+          mediaItem={extendedMediaItem as IPhotoMediaItemTypes}
+          albums={albums.albums}
+        />
       </View>
     );
   } else {
     return (
       <View flex={1} alignItems="center" justifyContent={'center'}>
-        <VideoMediaItem mediaItem={extededMediaItem as IVideoMediaItemTypes} />
+        <VideoMediaItem mediaItem={extendedMediaItem as IVideoMediaItemTypes} />
       </View>
     );
   }

@@ -11,6 +11,8 @@ import {addContents} from '../../../store/libraryContentReducers';
 import {onPinchHandlerStateChange} from '../../../utils/onPichHandleState';
 import {MediaItem} from '../../components/media';
 import {primaryBackgroundColor} from '../../../styles/colors';
+import {getAlbums} from '../../../client/photos';
+import {TGetAlbumsResponseTypes} from '../../../client/photo.types';
 
 const Photos = () => {
   let nextPageToken: string | undefined;
@@ -20,6 +22,7 @@ const Photos = () => {
   const size = (width * 0.92) / numColumns;
 
   const contents = useAppSelector(state => state.libraryContents.contents);
+  const [albums, setAlbums] = useState<TGetAlbumsResponseTypes | null>(null);
   const dispatch = useAppDispatch();
 
   const navigation = useNavigation<TPhotoStackPhotosProps>();
@@ -30,6 +33,11 @@ const Photos = () => {
       nextPageToken = res.nextPageToken;
       dispatch(addContents(res.contents));
     }
+  }, []);
+
+  const getAlbumsItems = useCallback(async () => {
+    const items = await getAlbums();
+    setAlbums(items);
   }, []);
 
   const fetchMore = useCallback(async () => {
@@ -46,11 +54,13 @@ const Photos = () => {
 
   useEffect(() => {
     getImages();
+    getAlbumsItems();
   }, []);
 
   const mediaItemOnPressed = (item: IMediaItemTypes) => {
     navigation.navigate('MediaView', {
       mediaItem: item,
+      albums: albums!,
     });
   };
 

@@ -13,15 +13,22 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {IPhotoMediaItemTypes} from '../../../../types/photo';
 import {savePicture} from '../../../../services/photo';
 import {getAspectRatio} from '../../../../utils/getAspectRatio';
-import {addMediaToAlbum, getAlbums} from '../../../../client/photos';
 import {PhotoMediaItemInfoBottomSheet} from '../../../layouts/PhotoMediaItemInfoBottomSheet';
 import {AlbumsItemSheet} from '../../../layouts/AlbumInfoBottomSheet';
 import {IAlbum} from '../../../../types/albums';
+import {addMediaToAlbum} from '../../../../client/photos';
+import {position} from 'native-base/lib/typescript/theme/styled-system';
 
-const PhotoMediaItem = ({mediaItem}: {mediaItem: IPhotoMediaItemTypes}) => {
+const PhotoMediaItem = ({
+  mediaItem,
+  albums,
+}: {
+  mediaItem: IPhotoMediaItemTypes;
+  albums: Array<IAlbum>;
+}) => {
   const {width} = useWindowDimensions();
   const [infoSheet, setInfoSheet] = useState(false);
-  const [showAlbums, setAlbumsSheet] = useState([]);
+  const [showAlbums, setshowAlbums] = useState(false);
   const navigation = useNavigation();
 
   const aspectRatio = getAspectRatio(
@@ -30,29 +37,38 @@ const PhotoMediaItem = ({mediaItem}: {mediaItem: IPhotoMediaItemTypes}) => {
   );
 
   const saveImageToGallery = async () => {
-    await savePicture(mediaItem);
+    const res = await savePicture(mediaItem);
+    if (res) {
+      Toast.show({
+        text1: 'Image saved!',
+        position: 'bottom',
+      });
+    } else {
+      Toast.show({
+        text1: 'An error occur during time request',
+        position: 'top',
+        type: 'error',
+      });
+    }
+  };
+
+  const addPhotoToAlbum = async (album: IAlbum) => {
+    await addMediaToAlbum({
+      mediaId: mediaItem.id,
+      albumId: album.id,
+    });
     Toast.show({
-      text1: 'Image saved!',
+      text1: 'Image added to album!',
       position: 'bottom',
     });
   };
 
-  //TODO: Handle add media to albums
-  // const addMediaItemToAlbum = async () => {
-  //   const album = await getAlbums();
-  //   const albumId = album.albums[0].id;
-  //   await addMediaToAlbum({
-  //     mediaId: mediaItem.id,
-  //     albumId: albumId,
-  //   });
-  //   Toast.show({
-  //     text1: 'Image added to album!',
-  //     position: 'bottom',
-  //   });
-  // };
-
   const showInfo = () => {
     setInfoSheet(true);
+  };
+
+  const showSelectAlbum = () => {
+    setshowAlbums(true);
   };
 
   const renderFunctionalityButtons = () => {
@@ -68,6 +84,11 @@ const PhotoMediaItem = ({mediaItem}: {mediaItem: IPhotoMediaItemTypes}) => {
             style={styles.iconPressableStyle}
             onPress={saveImageToGallery}>
             <Icon name="cloud-download" style={styles.backIconStyle} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.iconPressableStyle}
+            onPress={showSelectAlbum}>
+            <Icon name="add" style={styles.backIconStyle} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.iconPressableStyle}
@@ -103,15 +124,19 @@ const PhotoMediaItem = ({mediaItem}: {mediaItem: IPhotoMediaItemTypes}) => {
           />
         )}
 
-        {/*{infoSheet && (*/}
-        {/*  <AlbumsItemSheet*/}
-        {/*    albums={await getAlbums}*/}
-        {/*    onClose={() => {*/}
-        {/*      setInfoSheet(false);*/}
-        {/*    }}*/}
-        {/*    size={'25%'}*/}
-        {/*  />*/}
-        {/*)}*/}
+        {showAlbums && (
+          <AlbumsItemSheet
+            onClose={() => {
+              setshowAlbums(false);
+            }}
+            albums={albums}
+            onSelectAlbum={album => {
+              setshowAlbums(false);
+              addPhotoToAlbum(album);
+            }}
+            size={'25%'}
+          />
+        )}
 
         <Toast />
         {renderFunctionalityButtons()}
